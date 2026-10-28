@@ -1,0 +1,187 @@
+Dataset loaded successfully from the public URL.
+
+=================================================================
+1. DATASET OVERVIEW
+=================================================================
+Number of rows: 429
+Number of columns: 12
+
+Column names:
+['passengerid', 'survived', 'pclass', 'name', 'sex', 'age', 'sibsp', 'parch', 'ticket', 'fare', 'cabin', 'embarked']
+
+First five rows:
+ passengerid  survived  pclass                                         name    sex  age  sibsp  parch  ticket    fare cabin embarked
+         892         0       3                             Kelly, Mr. James   male 34.5      0      0  330911  7.8292   NaN        Q
+         893         1       3             Wilkes, Mrs. James (Ellen Needs) female 47.0      1      0  363272  7.0000   NaN        S
+         894         0       2                    Myles, Mr. Thomas Francis   male 62.0      0      0  240276  9.6875   NaN        Q
+         895         0       3                             Wirz, Mr. Albert   male 27.0      0      0  315154  8.6625   NaN        S
+         896         1       3 Hirvonen, Mrs. Alexander (Helga E Lindqvist) female 22.0      1      1 3101298 12.2875   NaN        S
+
+Data types and non-null counts:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 429 entries, 0 to 428
+Data columns (total 12 columns):
+ #   Column       Non-Null Count  Dtype  
+---  ------       --------------  -----  
+ 0   passengerid  429 non-null    int64  
+ 1   survived     429 non-null    int64  
+ 2   pclass       429 non-null    int64  
+ 3   name         429 non-null    object 
+ 4   sex          429 non-null    object 
+ 5   age          338 non-null    float64
+ 6   sibsp        429 non-null    int64  
+ 7   parch        429 non-null    int64  
+ 8   ticket       429 non-null    object 
+ 9   fare         428 non-null    float64
+ 10  cabin        94 non-null     object 
+ 11  embarked     429 non-null    object 
+dtypes: float64(2), int64(5), object(5)
+memory usage: 40.3+ KB
+
+Summary statistics:
+             count unique                           top freq         mean  \
+passengerid  429.0    NaN                           NaN  NaN  1105.717949   
+survived     429.0    NaN                           NaN  NaN     0.368298   
+pclass       429.0    NaN                           NaN  NaN     2.270396   
+name           429    418  Saether, Mr. Simon Sivertsen    2          NaN   
+sex            429      2                          male  271          NaN   
+age          338.0    NaN                           NaN  NaN    30.313609   
+sibsp        429.0    NaN                           NaN  NaN     0.445221   
+parch        429.0    NaN                           NaN  NaN     0.389277   
+ticket         429    363                      PC 17608    5          NaN   
+fare         428.0    NaN                           NaN  NaN    35.863707   
+cabin           94     76               B57 B59 B63 B66    3          NaN   
+embarked       429      3                             S  275          NaN   
+
+                    std    min       25%      50%     75%       max  
+passengerid  123.520675  892.0     999.0   1106.0  1213.0    1309.0  
+survived       0.482906    0.0       0.0      0.0     1.0       1.0  
+pclass          0.84366    1.0       1.0      3.0     3.0       3.0  
+name                NaN    NaN       NaN      NaN     NaN       NaN  
+sex                 NaN    NaN       NaN      NaN     NaN       NaN  
+age           14.193762   0.17      21.0     28.0    39.0      76.0  
+sibsp          0.888613    0.0       0.0      0.0     1.0       8.0  
+parch          0.971547    0.0       0.0      0.0     0.0       9.0  
+ticket              NaN    NaN       NaN      NaN     NaN       NaN  
+fare          56.120009    0.0  7.893725  14.4271    31.5  512.3292  
+cabin               NaN    NaN       NaN      NaN     NaN       NaN  
+embarked            NaN    NaN       NaN      NaN     NaN       NaN  
+
+Missing values per column:
+cabin          335
+age             91
+fare             1
+passengerid      0
+name             0
+pclass           0
+survived         0
+sex              0
+parch            0
+sibsp            0
+ticket           0
+embarked         0
+dtype: int64
+
+=================================================================
+2. DATA CLEANING
+=================================================================
+Exact duplicate rows removed: 11
+Missing values in 'age' filled with median: 27.00
+Missing values in 'fare' filled with median: 14.45
+
+Missing values after cleaning:
+cabin              327
+passengerid          0
+pclass               0
+name                 0
+sex                  0
+survived             0
+age                  0
+sibsp                0
+ticket               0
+parch                0
+fare                 0
+embarked             0
+survival_status      0
+family_size          0
+dtype: int64
+
+=================================================================
+3. OVERALL SURVIVAL
+=================================================================
+Overall survival rate: 36.36%
+Passengers who did not survive: 266
+Passengers who survived: 152
+
+Survival summary:
+         Status  Passengers  Percentage
+Did not survive         266   63.636364
+       Survived         152   36.363636
+
+## Output Image Uploaded Saprately##
+
+=================================================================
+4. SURVIVAL BY SEX
+=================================================================
+Survival rate by sex (%):
+sex
+female    100.0
+male        0.0
+
+=================================================================
+5. SURVIVAL BY PASSENGER CLASS
+=================================================================
+Survival rate by passenger class (%):
+pclass
+1    46.73
+2    32.26
+3    33.03
+
+=================================================================
+6. AGE DISTRIBUTION BY SURVIVAL
+=================================================================
+
+=================================================================
+7. SURVIVAL BY SEX AND PASSENGER CLASS
+=================================================================
+Survival rate by class and sex (%):
+sex     female  male
+pclass              
+1        100.0   0.0
+2        100.0   0.0
+3        100.0   0.0
+
+
+=================================================================
+8. TICKET FARE AND SURVIVAL
+=================================================================
+Fare summary by survival outcome:
+                 count  median   mean
+survival_status                      
+Did not survive    266   13.00  27.48
+Survived           152   21.51  49.75
+
+=================================================================
+9. FAMILY SIZE AND SURVIVAL
+=================================================================
+Survival rate by family size (%):
+family_size
+1     26.88
+2     48.65
+3     52.63
+4     71.43
+5     28.57
+6     66.67
+7     25.00
+8     50.00
+11    50.00
+
+
+=================================================================
+10. CORRELATION HEATMAP
+=================================================================
+
+=================================================================
+PROJECT COMPLETED
+=================================================================
+Conclusion: Use the printed percentages and charts to describe how survival varies by sex, passenger class, age, fare, and family size. These are associations in the data and do not prove causation.
